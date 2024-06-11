@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 const transactionSchema = mongoose.Schema({
   status: {
     type: String,
-    enum: ["Success", "Pending", "Failure"],
+    enum: ["Success", "Pending", "Failed"],
     required: true,
   },
 

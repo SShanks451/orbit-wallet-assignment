@@ -3,6 +3,7 @@ import Transaction from "./models/TransactionModel.js";
 import { faker } from "@faker-js/faker";
 import mongoose from "mongoose";
 import connectDB from "./config/db.js";
+import "dotenv/config";
 
 connectDB();
 
@@ -31,7 +32,7 @@ const seedDB = async () => {
   users.forEach((user) => {
     for (let i = 0; i < 500; i++) {
       const transaction = new Transaction({
-        status: faker.helpers.arrayElement(["Success", "Pending", "Failure"]),
+        status: faker.helpers.arrayElement(["Success", "Pending", "Failed"]),
         type: faker.helpers.arrayElement(["Debit", "Credit"]),
         transactionDate: faker.date.past(),
         amount: faker.finance.amount(),
